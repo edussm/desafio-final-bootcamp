@@ -1,0 +1,35 @@
+x-postgres-base: &postgres-base
+  image: postgres:17.1-alpine3.20
+  restart: always
+  healthcheck:
+    test:
+      - CMD-SHELL
+      - pg_isready -U postgres
+    interval: 10s
+    timeout: 5s
+    retries: 5
+
+services:
+  # test
+  postgres-test:
+    profiles: ["test"]
+    <<: *postgres-base
+    env_file: ".env.test"
+    ports:
+      - 5432:5432
+    networks:
+      - test
+
+  # test
+  postgres-dev:
+    profiles: ["dev"]
+    <<: *postgres-base
+    env_file: ".env.dev"
+    ports:
+      - 5432:5432
+    networks:
+      - dev
+
+networks:
+  test:
+  dev:

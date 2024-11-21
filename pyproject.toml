@@ -1,0 +1,36 @@
+[project]
+name = "desafio-final"
+version = "0.1.0"
+description = "Desafio Final para o Bootcamp de Arquitetura"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "alembic>=1.14.0",
+    "asgi-correlation-id>=4.3.4",
+    "asyncpg>=0.30.0",
+    "fastapi[standard]>=0.115.5",
+    "psycopg2-binary>=2.9.10",
+    "pydantic-settings>=2.6.1",
+    "pytest>=8.3.3",
+    "python-json-logger>=2.0.7",
+    "rich>=13.9.4",
+    "sqlalchemy[asyncio]>=2.0.36",
+    "uuid6>=2024.7.10",
+    "uvicorn>=0.32.0",
+]
+
+[dependency-groups]
+dev = [
+    "black>=24.10.0",
+    "isort>=5.13.2",
+    "pytest-cov>=6.0.0",
+    "pytest>=8.3.3",
+    "pytest-asyncio>=0.24.0",
+    "pytest-mock>=3.14.0",
+    "pytest-timeout>=2.3.1",
+    "ruff>=0.7.4",
+    "faker>=33.0.0",
+]
+
+[tool.isort]
+profile = "black"
